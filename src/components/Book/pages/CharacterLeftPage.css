@@ -1,0 +1,127 @@
+/* CharacterLeftPage.css */
+.character-left-content {
+  width: 100%;
+  height: 100%;
+  padding: 45px;
+  background: linear-gradient(135deg, #F4E8D0 0%, #E8D4B0 100%);
+  color: #2C1810;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+/* მარცხენა მხარე - მოღვაწის პორტრეტი */
+.portrait-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.character-portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 6px solid #8B6914;
+  box-shadow: 0 12px 37px rgba(0,0,0,0.3);
+  object-fit: cover;
+  margin-bottom: 25px;
+}
+
+.character-name {
+  font-family: 'Baktrioni', serif;
+  font-size: 42px;
+  color: #2C1810;
+  margin: 0 0 15px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.character-title {
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 27px;
+  color: #8B6914;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+.life-dates {
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 24px;
+  color: #5D4E37;
+  margin: 0;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #D4A574 0%, #B08D57 100%);
+  border-radius: 20px;
+  display: inline-block;
+  border: 3px solid #8B6914;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-family: 'Baktrioni', serif;
+  font-size: 27px;
+  color: #8B6914;
+  background: linear-gradient(135deg, #D4A574 0%, #B08D57 100%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #8B6914;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Decorative elements */
+.character-left-content::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%238B6914" opacity="0.3"/></svg>') no-repeat;
+  background-size: contain;
+}
+
+.character-left-content::after {
+  content: '';
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%238B6914" opacity="0.3"/></svg>') no-repeat;
+  background-size: contain;
+  transform: rotate(180deg);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .character-left-content {
+    padding: 30px;
+  }
+  
+  .portrait-section {
+    padding: 20px;
+  }
+  
+  .character-portrait {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .character-name {
+    font-size: 36px;
+  }
+  
+  .character-title {
+    font-size: 24px;
+  }
+} 

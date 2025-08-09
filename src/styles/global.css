@@ -1,0 +1,1558 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BPG+Nino+Mtavruli&display=swap');
+
+/* Import Tailwind CSS layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* XIX Century Academic Library Color Palette */
+:root {
+  /* Primary Colors */
+  --primary-black: #0A0908;      /* Deep black - main background */
+  --antique-gold: #D4A574;       /* Antique gold - text, ornaments */
+  --ivory-white: #FFFEF2;        /* Ivory white - accents */
+  
+  /* Secondary Colors */
+  --dark-wood: #1C1410;          /* Dark wood color - panels */
+  --old-paper: #F4E8D0;          /* Old paper color - backgrounds */
+  --deep-burgundy: #5D1F1A;      /* Deep burgundy - accents */
+  --brass: #B08D57;              /* Brass - decorative elements */
+  
+  /* Additional Colors */
+  --aged-leather: #2A1810;       /* Aged leather */
+  --parchment: #F7F1E3;          /* Parchment */
+  --tarnished-silver: #8B8B8B;   /* Tarnished silver */
+  --ink-black: #1A1A1A;          /* Ink black */
+  
+  /* Text Colors - Light Brown Shades */
+  --text-primary: #E6D7C3;       /* Light cream for primary text */
+  --text-secondary: #D4C4A8;     /* Lighter brown for secondary text */
+  --text-accent: #C4B498;        /* Medium light brown for accents */
+  --text-muted: #B8A898;         /* Muted light brown */
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'BPG Nino Mtavruli', 'Noto Serif Georgian', 'Georgia', serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--primary-black);
+  background-image: 
+    linear-gradient(rgba(28, 20, 16, 0.95), rgba(10, 9, 8, 0.98)),
+    radial-gradient(circle at 20% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(176, 141, 87, 0.05) 0%, transparent 50%);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom fonts */
+.font-georgian {
+  font-family: 'Noto Serif Georgian', serif;
+}
+
+.font-heading {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.font-body {
+  font-family: 'BPG Nino Mtavruli', 'Noto Serif Georgian', serif;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif Georgian', serif;
+  color: var(--antique-gold);
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Book page styles - XIX century aesthetic */
+.book-page {
+  background: linear-gradient(135deg, var(--old-paper) 0%, var(--parchment) 100%);
+  border: 2px solid var(--brass);
+  box-shadow: 
+    inset 0 0 30px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.book-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="paper" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="%23000" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23paper)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.book-page-content {
+  font-family: 'Noto Serif Georgian', serif;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.page-number {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--deep-burgundy);
+  font-family: 'Noto Serif Georgian', serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat styles - XIX century aesthetic */
+.chat-page {
+  background: linear-gradient(135deg, var(--old-paper) 0%, var(--parchment) 100%);
+  border: 2px solid var(--brass);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message {
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+  border: 1px solid rgba(176, 141, 87, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.chat-message-text {
+  font-family: 'Noto Serif Georgian', serif;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.chat-input-enhanced {
+  font-family: 'Noto Serif Georgian', serif;
+  transition: all 0.3s ease;
+  background: rgba(244, 232, 208, 0.9);
+  border: 2px solid var(--brass);
+  color: var(--text-primary);
+}
+
+.chat-input-enhanced:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+  border-color: var(--antique-gold);
+  background: var(--ivory-white);
+}
+
+/* Prevent page flip on chat page */
+.book-page[style*="pointer-events: auto"] {
+  pointer-events: auto !important;
+}
+
+.book-page[style*="pointer-events: auto"] * {
+  pointer-events: auto !important;
+}
+
+/* Force chat elements to be interactive */
+.chat-page,
+.chat-page *,
+.chat-page form,
+.chat-page textarea,
+.chat-page input,
+.chat-page button,
+.chat-page div,
+.chat-page p {
+  pointer-events: auto !important;
+  user-select: text !important;
+}
+
+/* Override react-pageflip styles for chat */
+.stf__block .chat-page,
+.stf__block .chat-page *,
+.stf__parent .chat-page,
+.stf__parent .chat-page * {
+  pointer-events: auto !important;
+  user-select: text !important;
+}
+
+/* Ensure chat input is always interactive */
+.chat-page input,
+.chat-page textarea,
+.chat-page button,
+.chat-page form {
+  pointer-events: auto !important;
+  user-select: text !important;
+  cursor: text !important;
+}
+
+.chat-page input:focus,
+.chat-page textarea:focus {
+  pointer-events: auto !important;
+  outline: none !important;
+  border-color: var(--antique-gold) !important;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2) !important;
+}
+
+/* Disable page flip on chat interaction */
+.stf__block .chat-page,
+.stf__parent .chat-page {
+  pointer-events: auto !important;
+}
+
+.stf__block .chat-page *,
+.stf__parent .chat-page * {
+  pointer-events: auto !important;
+}
+
+/* Book flip animations */
+.book-flip {
+  perspective: 1000px;
+  background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary-black) 100%);
+  border: 3px solid var(--brass);
+  box-shadow: 
+    inset 0 0 50px rgba(0, 0, 0, 0.5),
+    0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.page-nav-button {
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary-black) 100%);
+  border: 2px solid var(--antique-gold);
+  color: var(--antique-gold);
+}
+
+.page-nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, #B8860B 0%, #D4A574 100%);
+}
+
+.page-nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  background: linear-gradient(135deg, #8B7355 0%, #6B4423 100%);
+}
+
+.page-nav-button:disabled:hover {
+  transform: none;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(255,255,255,0.2);
+}
+
+/* Loading animations */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+  transform: translateY(0);
+}
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Candle flicker effect */
+@keyframes candleFlicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.6; }
+}
+
+.candle-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+  animation: candleFlicker 3s infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Scrollbar styles - XIX century aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-wood);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brass);
+  border-radius: 4px;
+  border: 1px solid var(--antique-gold);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--antique-gold);
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--antique-gold);
+  outline-offset: 2px;
+}
+
+/* Button hover effects */
+button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Text selection */
+::selection {
+  background: var(--antique-gold);
+  color: var(--primary-black);
+}
+
+::-moz-selection {
+  background: var(--antique-gold);
+  color: var(--primary-black);
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  .book-page-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .book-page-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .book-page-content p {
+    font-size: 0.875rem;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+/* Print styles */
+@media print {
+  .book-page {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .book-page {
+    border: 2px solid var(--antique-gold);
+  }
+  
+  .chat-message {
+    border: 1px solid var(--antique-gold);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-bounce {
+    animation: none;
+  }
+  
+  .candle-glow {
+    animation: none;
+  }
+} 
+
+/* Chat interaction prevention - Enhanced */
+.chat-page,
+.chat-page *,
+.chat-page input,
+.chat-page textarea,
+.chat-page button,
+.chat-page form,
+.chat-page div[onClick],
+.chat-page div[onMouseDown],
+.chat-page div[onTouchStart] {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+/* Override react-pageflip styles for chat elements */
+.stf__block .chat-page,
+.stf__parent .chat-page,
+.stf__block .chat-page *,
+.stf__parent .chat-page * {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+/* Prevent any click events from bubbling up from chat elements */
+.chat-page *:focus,
+.chat-page *:active,
+.chat-page input:focus,
+.chat-page textarea:focus,
+.chat-page button:focus,
+.chat-page button:active {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  outline: none !important;
+}
+
+/* Specific chat input and button styles */
+.chat-page textarea,
+.chat-page input[type="text"],
+.chat-page button[type="submit"] {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  cursor: text !important;
+}
+
+.chat-page button[type="submit"] {
+  cursor: pointer !important;
+}
+
+/* Prevent page flip on chat interaction */
+.book-page[style*="pointer-events: auto"] .chat-page,
+.book-page[style*="pointer-events: auto"] .chat-page * {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+} 
+
+/* Fixed first page styles */
+.book-page:first-child {
+  position: relative !important;
+  z-index: 10 !important;
+  transform: none !important;
+  transition: none !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure the fixed page doesn't participate in flip animations */
+.book-page:first-child .chat-page {
+  position: relative !important;
+  z-index: 15 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Override react-pageflip for fixed page */
+.stf__block .book-page:first-child,
+.stf__parent .book-page:first-child {
+  position: relative !important;
+  z-index: 10 !important;
+  transform: none !important;
+  transition: none !important;
+  pointer-events: auto !important;
+}
+
+/* Prevent any flip animations on the fixed page */
+.book-page:first-child * {
+  transform: none !important;
+  transition: none !important;
+} 
+
+/* Chat input styles - ensure proper functionality */
+.chat-panel textarea,
+.chat-panel input[type="text"],
+.chat-panel button[type="submit"] {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  cursor: text !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.chat-panel button[type="submit"] {
+  cursor: pointer !important;
+}
+
+/* Ensure chat form is interactive */
+.chat-panel form {
+  pointer-events: auto !important;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+/* Remove any conflicting styles */
+.chat-panel * {
+  pointer-events: auto !important;
+}
+
+/* Focus styles for chat input */
+.chat-panel textarea:focus,
+.chat-panel input[type="text"]:focus {
+  outline: 2px solid #D4A574 !important;
+  outline-offset: 2px !important;
+  border-color: #D4A574 !important;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1) !important;
+} 
+
+/* XIX Century Academic Library - Enhanced Book Design */
+
+/* Book Container Styles */
+.book-flip {
+  background: linear-gradient(135deg, #2a1810 0%, #1a0f08 100%);
+  border: 4px solid #8B6914;
+  box-shadow: 
+    inset 0 0 60px rgba(0,0,0,0.6),
+    0 20px 60px rgba(0,0,0,0.9),
+    0 0 100px rgba(212, 165, 116, 0.1);
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Ornate Book Cover */
+.book-flip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, #2a1810 0%, #1a0f08 100%);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+/* Corner Ornaments */
+.book-flip::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  background: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%23D4A574" opacity="0.3"/></svg>') top left no-repeat,
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%23D4A574" opacity="0.3"/></svg>') top right no-repeat,
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%23D4A574" opacity="0.3"/></svg>') bottom left no-repeat,
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%23D4A574" opacity="0.3"/></svg>') bottom right no-repeat;
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Enhanced Book Pages */
+.book-page {
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(160, 82, 45, 0.04) 0%, transparent 70%),
+    linear-gradient(135deg, #F4E8D0 0%, #F7F1E3 100%);
+  
+  position: relative;
+  border: 2px solid #B08D57;
+  box-shadow: 
+    inset 0 0 50px rgba(139, 69, 19, 0.1),
+    0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Burned Edges Effect */
+.book-page::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: 
+    radial-gradient(ellipse at 0% 0%, rgba(139, 69, 19, 0.3) 0%, transparent 30%),
+    radial-gradient(ellipse at 100% 0%, rgba(139, 69, 19, 0.3) 0%, transparent 30%),
+    radial-gradient(ellipse at 0% 100%, rgba(139, 69, 19, 0.3) 0%, transparent 30%),
+    radial-gradient(ellipse at 100% 100%, rgba(139, 69, 19, 0.3) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Page Content Styling */
+.book-page-content {
+  color: var(--text-primary);
+  font-family: 'Noto Serif Georgian', serif;
+  line-height: 1.8;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative Initial Letters */
+.book-page-content h1::first-letter {
+  float: left;
+  font-size: 4em;
+  line-height: 0.8;
+  margin: 0 10px 10px 0;
+  padding: 15px;
+  background: 
+    radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+  color: #8B6914;
+  font-family: 'Baktrioni', serif;
+  border-radius: 8px;
+}
+
+/* Illuminated Borders */
+.illuminated-border {
+  border: 12px solid transparent;
+  border-image: 
+    linear-gradient(45deg, #D4A574, #B8860B, #D4A574) 1;
+  padding: 20px;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+}
+
+/* Enhanced Chat Panel */
+.chat-panel {
+  border-left: 3px solid #B08D57;
+  background: 
+    linear-gradient(135deg, #F4E8D0 0%, #F7F1E3 100%);
+  box-shadow: 
+    inset 0 0 30px rgba(139, 69, 19, 0.1),
+    0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat Messages with Parchment Effect */
+.chat-message {
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #F7F1E3 0%, #F4E8D0 100%);
+  border: 1px solid #B08D57;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.chat-message::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(139, 69, 19, 0.03) 0%, transparent 30%),
+    radial-gradient(circle at 70% 20%, rgba(101, 67, 33, 0.02) 0%, transparent 25%);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+/* Quill Pen Input Styling */
+.chat-input-enhanced {
+  background: 
+    linear-gradient(135deg, #F7F1E3 0%, #F4E8D0 100%);
+  border: 2px solid #B08D57;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Noto Serif Georgian', serif;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+.chat-input-enhanced:focus {
+  outline: none;
+  border-color: #D4A574;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+  background: 
+    linear-gradient(135deg, #F4E8D0 0%, #F7F1E3 100%);
+}
+
+/* Atmospheric Effects */
+@keyframes candleFlicker {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.02); }
+}
+
+.candle-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+  animation: candleFlicker 4s infinite;
+}
+
+/* Dust Particles */
+@keyframes floatDust {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.dust-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(212, 165, 116, 0.3);
+  border-radius: 50%;
+  animation: floatDust linear infinite;
+}
+
+/* Enhanced Navigation Buttons */
+.page-nav-button {
+  background: linear-gradient(135deg, #D4A574 0%, #B8860B 100%);
+  border: 2px solid #F4E8D0;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  color: #1C1410;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.page-nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, #B8860B 0%, #D4A574 100%);
+}
+
+/* Close Button Styling */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: linear-gradient(135deg, #5D1F1A 0%, #3D1510 100%);
+  border: 2px solid #D4A574;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4A574;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.close-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #3D1510 0%, #5D1F1A 100%);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .book-flip {
+    transform: scale(0.8);
+  }
+  
+  .chat-panel {
+    border-left: none;
+    border-top: 3px solid #B08D57;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+.book-page {
+    background: #F4E8D0;
+    border: 3px solid #000;
+  }
+  
+  .chat-message {
+    background: #F7F1E3;
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .candle-glow {
+    animation: none;
+  }
+  
+  .dust-particle {
+    animation: none;
+  }
+  
+  .page-nav-button:hover {
+    transform: none;
+  }
+} 
+
+/* Chat Page Styles */
+.chat-page {
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.06) 0%, transparent 50%),
+    linear-gradient(135deg, #F4E8D0 0%, #F7F1E3 100%);
+  position: relative;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 2px solid #B08D57;
+}
+
+.ornamental-title {
+  font-family: 'Baktrioni', serif;
+  color: #8B6914;
+  font-size: 2.5em;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  letter-spacing: 2px;
+}
+
+.decorative-divider {
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #D4A574 50%, transparent 100%);
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 120px);
+  gap: 20px;
+}
+
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #F7F1E3 0%, #F4E8D0 100%);
+  border: 2px solid #B08D57;
+  border-radius: 12px;
+  box-shadow: inset 0 0 20px rgba(139, 69, 19, 0.1);
+}
+
+.message {
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 12px;
+  position: relative;
+  max-width: 80%;
+}
+
+.message.user {
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #D4A574 0%, #B8860B 100%);
+  color: #1C1410;
+  margin-left: auto;
+  border: 1px solid #8B6914;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.message.ai {
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #F7F1E3 0%, #F4E8D0 100%);
+  color: var(--text-primary);
+  margin-right: auto;
+  border: 1px solid #B08D57;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.handwritten-text {
+  font-family: 'Noto Serif Georgian', serif;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.input-area {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background: 
+    linear-gradient(135deg, #F4E8D0 0%, #F7F1E3 100%);
+  border: 2px solid #B08D57;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.chat-input-enhanced {
+  flex: 1;
+  min-height: 60px;
+  max-height: 120px;
+  resize: vertical;
+  background: 
+    linear-gradient(135deg, #F7F1E3 0%, #F4E8D0 100%);
+  border: 2px solid #B08D57;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Noto Serif Georgian', serif;
+  padding: 12px 16px;
+  font-size: 1.1em;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.chat-input-enhanced:focus {
+  outline: none;
+  border-color: #D4A574;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+  background: 
+    linear-gradient(135deg, #F4E8D0 0%, #F7F1E3 100%);
+}
+
+.send-button {
+  background: linear-gradient(135deg, #8B6914 0%, #D4A574 100%);
+  border: 2px solid #5D4E37;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F4E8D0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.send-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #D4A574 0%, #8B6914 100%);
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #8B6914;
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+} 
+
+/* Write to Ilia Button Styles */
+.write-to-ilia-button {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* XIX Century Button Style */
+  background: linear-gradient(135deg, #2C1810 0%, #1A0F08 100%);
+  border: 2px solid #D4A574;
+  padding: 15px 40px;
+  border-radius: 8px;
+  
+  /* Text and Icon */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  /* Effects */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.3),
+    inset 0 0 20px rgba(212, 165, 116, 0.1);
+  
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 18px;
+  color: #D4A574;
+  letter-spacing: 1px;
+  z-index: 10;
+}
+
+.write-to-ilia-button:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.4),
+    inset 0 0 30px rgba(212, 165, 116, 0.2);
+  border-color: #F4D090;
+  color: #F4D090;
+}
+
+/* Button Ornaments */
+.button-ornament-left,
+.button-ornament-right {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: 
+    radial-gradient(circle, #D4A574 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.button-ornament-left {
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button-ornament-right {
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.quill-icon {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+}
+
+.button-text {
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Chat Modal Styles */
+.chat-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.chat-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 9998;
+}
+
+.chat-container {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  height: 80vh;
+  max-height: 700px;
+  z-index: 10000;
+  animation: slideUp 0.4s ease 0.1s both;
+}
+
+.chat-frame {
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(180deg, #F4E8D0 0%, #E8D4B0 100%);
+  
+  border: 4px solid #8B6914;
+  border-radius: 8px;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.5),
+    inset 0 0 40px rgba(139, 69, 19, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  /* Decorative Corners */
+  position: relative;
+  z-index: 10001;
+}
+
+.chat-frame::before,
+.chat-frame::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(212, 165, 116, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.2) 0%, transparent 50%);
+  border-radius: 8px;
+}
+
+.chat-frame::before {
+  top: -2px;
+  left: -2px;
+}
+
+.chat-frame::after {
+  bottom: -2px;
+  right: -2px;
+  transform: rotate(180deg);
+}
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(28, 20, 16, 0.9) 0%, rgba(28, 20, 16, 0.7) 100%);
+  border-bottom: 2px solid #8B6914;
+  z-index: 10002;
+  position: relative;
+}
+
+.chat-portrait {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #D4A574;
+  object-fit: cover;
+}
+
+.chat-header h3 {
+  flex: 1;
+  font-family: 'Baktrioni', serif;
+  color: #D4A574;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.chat-close-button {
+  background: linear-gradient(135deg, #5D1F1A 0%, #3D1510 100%);
+  border: 2px solid #D4A574;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4A574;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 10003;
+  position: relative;
+}
+
+.chat-close-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #3D1510 0%, #5D1F1A 100%);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Messages Area */
+.chat-messages {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  z-index: 10002;
+}
+
+.parchment-texture {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.messages-scroll {
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  z-index: 10003;
+  position: relative;
+}
+
+/* Input Area */
+.chat-input-area {
+  padding: 20px;
+  background: rgba(28, 20, 16, 0.1);
+  border-top: 2px solid #8B6914;
+  display: flex;
+  gap: 15px;
+  z-index: 10002;
+  position: relative;
+}
+
+.message-input {
+  flex: 1;
+  background: rgba(255, 254, 242, 0.8);
+  border: 2px solid #8B6914;
+  border-radius: 5px;
+  padding: 12px;
+  font-family: 'BPG Nino Mtavruli', serif;
+  color: #2C1810;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 10004;
+  position: relative;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: #D4A574;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+}
+
+.send-message-button {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #8B6914 0%, #D4A574 100%);
+  border: 2px solid #5D4E37;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #F4E8D0;
+  z-index: 10004;
+  position: relative;
+}
+
+.send-message-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #D4A574 0%, #8B6914 100%);
+}
+
+.send-message-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Voice Input Button */
+.voice-input-button {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #8B6914 0%, #D4A574 100%);
+  border: 2px solid #5D4E37;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #F4E8D0;
+  margin-right: 10px;
+  z-index: 10004;
+  position: relative;
+}
+
+.voice-input-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #D4A574 0%, #8B6914 100%);
+}
+
+.voice-input-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+} 
+
+/* Enhanced Book Flip Animations */
+.book-flip {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.book-flip.flipping {
+  animation: bookFlip 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes bookFlip {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(-10deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+/* Page Turn Sound Effect (Visual) */
+.page-turn-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.page-turn-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(212, 165, 116, 0.1) 50%, 
+    transparent 100%);
+  transform: translateX(-100%);
+  animation: pageTurnSweep 0.6s ease-out;
+}
+
+@keyframes pageTurnSweep {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Enhanced Book Page Effects */
+.book-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dust Particles Animation */
+.dust-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(212, 165, 116, 0.3);
+  border-radius: 50%;
+  animation: floatDust 8s infinite linear;
+  pointer-events: none;
+}
+
+.dust-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.dust-particle:nth-child(2) { left: 30%; animation-delay: 2s; }
+.dust-particle:nth-child(3) { left: 50%; animation-delay: 4s; }
+.dust-particle:nth-child(4) { left: 70%; animation-delay: 6s; }
+.dust-particle:nth-child(5) { left: 90%; animation-delay: 1s; }
+
+@keyframes floatDust {
+  0% { 
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { 
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced Button Hover Effects */
+.write-to-ilia-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.write-to-ilia-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(212, 165, 116, 0.2) 50%, 
+    transparent 100%);
+  transition: left 0.5s ease;
+}
+
+.write-to-ilia-button:hover::before {
+  left: 100%;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .book-container {
+    width: 95vw;
+    height: 80vh;
+  }
+  
+  .write-to-ilia-button {
+    padding: 12px 30px;
+    font-size: 16px;
+    bottom: 40px;
+  }
+  
+  .chat-container {
+    width: 95%;
+    height: 90vh;
+  }
+  
+  .voice-input-button,
+  .send-message-button {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .book-flip {
+    border: 3px solid #000;
+  }
+  
+  .write-to-ilia-button {
+    border: 3px solid #000;
+    background: #000;
+    color: #fff;
+  }
+  
+  .chat-frame {
+    border: 3px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .book-flip,
+  .write-to-ilia-button,
+  .voice-input-button,
+  .send-message-button {
+    transition: none;
+  }
+  
+  .dust-particle {
+    animation: none;
+  }
+  
+  .page-turn-effect::before {
+    animation: none;
+  }
+} 
+
+/* XIX Century Book Spine Text Improvements */
+.book-spine {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-spine .book-title {
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  max-width: 100% !important;
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+}
+
+.book-spine p {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+
+/* Improved vertical text rendering */
+.book-spine *[style*="writing-mode: vertical-rl"] {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Responsive adjustments for book spines */
+@media (max-width: 768px) {
+  .book-spine .book-title {
+    font-size: 0.75rem !important;
+  }
+  
+  .book-spine p {
+    font-size: 0.625rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-spine .book-title {
+    font-size: 0.625rem !important;
+  }
+  
+  .book-spine p {
+    font-size: 0.5rem !important;
+  }
+} 

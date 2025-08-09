@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "headline": "Digital Voice from the Past",
+    "subheadline": "Revive Georgian History with AI Technology",
+    "cta": {
+      "start": "Start Journey",
+      "demo": "View Demo"
+    }
+  },
+  "features": {
+    "title": "What We Offer",
+    "description": "Experience history like never before with our innovative platform designed to make learning engaging and memorable.",
+    "livingPortraits": {
+      "title": "Living Portraits",
+      "desc": "Animated 3D avatars of historical figures"
+    },
+    "authenticVoices": {
+      "title": "Authentic Voices",
+      "desc": "AI-restored voices of historical characters"
+    },
+    "timeTravel": {
+      "title": "Time Travel",
+      "desc": "Interactive timeline and virtual tours"
+    }
+  },
+  "cta": {
+    "title": "Ready to Begin Your Journey?",
+    "description": "Join thousands of history enthusiasts who are already exploring the fascinating stories that shaped our world.",
+    "button": "Get Started Today"
+  },
+  "navigation": {
+    "home": "Home",
+    "library": "Library",
+    "gallery": "Gallery",
+    "archive": "Archive",
+    "chat": "Chat",
+    "about": "About"
+  },
+  "pages": {
+    "archive": {
+      "title": "Archive",
+      "description": "Historical archive coming soon..."
+    },
+    "chat": {
+      "title": "Chat",
+      "description": "Interactive chat feature coming soon..."
+    },
+    "about": {
+      "title": "About",
+      "description": "About page coming soon..."
+    },
+    "backToHome": "Back to Home"
+  }
+} 

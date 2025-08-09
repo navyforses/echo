@@ -1,0 +1,126 @@
+/* CharacterInfoPage.css */
+.character-info-content {
+  width: 100%;
+  height: 100%;
+  padding: 45px;
+  background: linear-gradient(135deg, #F4E8D0 0%, #E8D4B0 100%);
+  color: #2C1810;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+/* მარჯვენა მხარე - ილია ჭავჭავაძის ინფორმაცია */
+.ilia-info-section {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.ilia-info {
+  text-align: center;
+  max-width: 80%;
+}
+
+.ilia-portrait {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 6px solid #D4A574;
+  box-shadow: 0 12px 37px rgba(0,0,0,0.3);
+  object-fit: cover;
+  margin-bottom: 25px;
+}
+
+.ilia-name {
+  font-family: 'Baktrioni', serif;
+  font-size: 36px;
+  color: #8B6914;
+  margin: 0 0 20px 0;
+  text-align: center;
+  border-bottom: 3px solid #D4A574;
+  padding-bottom: 15px;
+}
+
+.ilia-description {
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 22px;
+  line-height: 1.6;
+  margin: 0;
+  color: #2C1810;
+  text-align: justify;
+  padding: 0 20px;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-family: 'Baktrioni', serif;
+  font-size: 27px;
+  color: #8B6914;
+  background: linear-gradient(135deg, #D4A574 0%, #B08D57 100%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #8B6914;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Decorative elements */
+.character-info-content::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%238B6914" opacity="0.3"/></svg>') no-repeat;
+  background-size: contain;
+}
+
+.character-info-content::after {
+  content: '';
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L30,0 Q50,20 70,0 L100,0 L100,30 Q80,50 100,70 L100,100 L70,100 Q50,80 30,100 L0,100 Z" fill="%238B6914" opacity="0.3"/></svg>') no-repeat;
+  background-size: contain;
+  transform: rotate(180deg);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .character-info-content {
+    padding: 30px;
+  }
+  
+  .ilia-info-section {
+    padding: 20px;
+  }
+  
+  .ilia-portrait {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .ilia-name {
+    font-size: 28px;
+  }
+  
+  .ilia-description {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+} 

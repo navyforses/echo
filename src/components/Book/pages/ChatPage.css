@@ -1,0 +1,175 @@
+/* ChatPage.css */
+.chat-page-content {
+  width: 100%;
+  height: 100%;
+  padding: 30px; /* გაიზარდა 20px-დან 30px-მდე */
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #2C1810 0%, #1A0F08 100%);
+  color: var(--text-primary);
+  position: relative;
+}
+
+.ornamental-border {
+  width: 100%;
+  height: 100%;
+  border: 4px solid #8B6914; /* გაიზარდა 3px-დან 4px-მდე */
+  border-radius: 12px; /* გაიზარდა 8px-დან 12px-მდე */
+  padding: 30px; /* გაიზარდა 20px-დან 30px-მდე */
+  background: linear-gradient(135deg, #F4E8D0 0%, #E8D4B0 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ornamental-border::before {
+  content: '';
+  position: absolute;
+  top: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  left: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  right: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  bottom: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  border: 2px solid #D4A574; /* გაიზარდა 1px-დან 2px-მდე */
+  border-radius: 6px; /* გაიზარდა 4px-დან 6px-მდე */
+  pointer-events: none;
+}
+
+.chat-title {
+  text-align: center;
+  font-family: 'Baktrioni', serif;
+  font-size: 25px; /* შემცირდა 36px-დან 25px-მდე (30%-ით) */
+  color: #2C1810;
+  margin-bottom: 30px; /* გაიზარდა 20px-დან 30px-მდე */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 254, 242, 0.9);
+  border: 3px solid #8B6914; /* გაიზარდა 2px-დან 3px-მდე */
+  border-radius: 9px; /* გაიზარდა 6px-დან 9px-მდე */
+  overflow: hidden;
+}
+
+.messages-area {
+  flex: 1;
+  padding: 22px; /* გაიზარდა 15px-დან 22px-მდე */
+  overflow-y: auto;
+  background: linear-gradient(135deg, #F7F1E3 0%, #F4E8D0 100%);
+}
+
+.message {
+  margin-bottom: 22px; /* გაიზარდა 15px-დან 22px-მდე */
+  padding: 15px 22px; /* გაიზარდა 10px 15px-დან 15px 22px-მდე */
+  border-radius: 12px; /* გაიზარდა 8px-დან 12px-მდე */
+  max-width: 80%;
+  position: relative;
+}
+
+.message.user {
+  background: linear-gradient(135deg, #8B6914 0%, #D4A574 100%);
+  color: #FFFEF2;
+  margin-left: auto;
+  border-bottom-right-radius: 6px; /* გაიზარდა 4px-დან 6px-მდე */
+}
+
+.message.ilia {
+  background: linear-gradient(135deg, #2C1810 0%, #5D4E37 100%);
+  color: #F4E8D0;
+  margin-right: auto;
+  border-bottom-left-radius: 6px; /* გაიზარდა 4px-დან 6px-მდე */
+}
+
+.message p {
+  margin: 0 0 8px 0; /* გაიზარდა 5px-დან 8px-მდე */
+  font-size: 15px; /* შემცირდა 21px-დან 15px-მდე (30%-ით) */
+  line-height: 1.4;
+}
+
+.timestamp {
+  font-size: 11px; /* შემცირდა 16px-დან 11px-მდე (30%-ით) */
+  opacity: 0.7;
+  display: block;
+}
+
+.input-area {
+  display: flex;
+  gap: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  padding: 22px; /* გაიზარდა 15px-დან 22px-მდე */
+  background: rgba(28, 20, 16, 0.1);
+  border-top: 2px solid #8B6914; /* გაიზარდა 1px-დან 2px-მდე */
+}
+
+.input-area textarea {
+  flex: 1;
+  background: rgba(255, 254, 242, 0.9);
+  border: 3px solid #8B6914; /* გაიზარდა 2px-დან 3px-მდე */
+  border-radius: 6px; /* გაიზარდა 4px-დან 6px-მდე */
+  padding: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 15px; /* შემცირდა 21px-დან 15px-მდე (30%-ით) */
+  color: #2C1810;
+  resize: none;
+  min-height: 60px; /* გაიზარდა 40px-დან 60px-მდე */
+  max-height: 120px; /* გაიზარდა 80px-დან 120px-მდე */
+}
+
+.input-area textarea:focus {
+  outline: none;
+  border-color: #D4A574;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.3); /* გაიზარდა 2px-დან 3px-მდე */
+}
+
+.send-btn {
+  width: 60px; /* გაიზარდა 40px-დან 60px-მდე */
+  height: 60px; /* გაიზარდა 40px-დან 60px-მდე */
+  background: linear-gradient(135deg, #8B6914 0%, #D4A574 100%);
+  border: 3px solid #5D4E37; /* გაიზარდა 2px-დან 3px-მდე */
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3); /* გაიზარდა 12px-დან 18px-მდე */
+}
+
+.send-btn svg {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s ease;
+}
+
+.send-btn:hover svg {
+  transform: translateX(2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-page-content {
+    padding: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  }
+  
+  .ornamental-border {
+    padding: 22px; /* გაიზარდა 15px-დან 22px-მდე */
+  }
+  
+  .chat-title {
+    font-size: 21px; /* შემცირდა 30px-დან 21px-მდე (30%-ით) */
+  }
+  
+  .message {
+    max-width: 90%;
+  }
+  
+  .input-area {
+    padding: 15px; /* გაიზარდა 10px-დან 15px-მდე */
+  }
+} 

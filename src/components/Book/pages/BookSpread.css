@@ -1,0 +1,867 @@
+/* წიგნის კონტეინერი */
+.book-spread-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* წიგნის გვერდები */
+.book-spread-container .book-pages {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #1A0F08;
+  border: 4px solid #8B6914;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.6),
+    inset 0 0 40px rgba(0,0,0,0.3);
+  position: relative;
+  border-radius: 8px;
+}
+
+/* თითოეული გვერდი */
+.book-spread-container .page {
+  width: 50%;
+  height: 100%;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* მარცხენა გვერდი - ჩატი */
+.book-spread-container .left-page {
+  background: linear-gradient(105deg, #F4E8D0 0%, #E8D4B0 50%);
+  border-right: 1px solid rgba(139, 69, 19, 0.3);
+}
+
+/* მარჯვენა გვერდი - ინფორმაცია */
+.book-spread-container .right-page {
+  background: linear-gradient(-105deg, #F4E8D0 0%, #E8D4B0 50%);
+}
+
+/* ცენტრალური შეკერვა */
+.book-spread-container .book-spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(90deg, 
+    rgba(0,0,0,0.2) 0%, 
+    rgba(0,0,0,0.4) 20%,
+    rgba(0,0,0,0.1) 50%,
+    rgba(0,0,0,0.4) 80%,
+    rgba(0,0,0,0.2) 100%
+  );
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* კლიკაბელი შეკერვა */
+.book-spread-container .clickable-spine {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-spread-container .clickable-spine:hover {
+  background: linear-gradient(90deg, 
+    rgba(212, 165, 116, 0.3) 0%, 
+    rgba(212, 165, 116, 0.5) 20%,
+    rgba(212, 165, 116, 0.2) 50%,
+    rgba(212, 165, 116, 0.5) 80%,
+    rgba(212, 165, 116, 0.3) 100%
+  );
+  box-shadow: 0 0 10px rgba(212, 165, 116, 0.4);
+}
+
+.book-spread-container .clickable-spine:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+/* გვერდების დეკორაცია */
+.book-spread-container .page-decoration {
+  position: absolute;
+  inset: 15px;
+  border: 2px solid rgba(212, 165, 116, 0.3);
+  pointer-events: none;
+}
+
+.book-spread-container .page-decoration::before,
+.book-spread-container .page-decoration::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #D4A574;
+}
+
+.book-spread-container .page-decoration::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.book-spread-container .page-decoration::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* გვერდის კონტენტი */
+.book-spread-container .page-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* გვერდის სათაური */
+.book-spread-container .page-title {
+  font-family: 'Baktrioni', serif;
+  font-size: 24px;
+  color: #8B6914;
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #D4A574;
+  padding-bottom: 8px;
+}
+
+/* ჩატის სტილები */
+.book-spread-container .chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* გვერდის კუთხის ეფექტი */
+.book-spread-container .demo-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      #faf8f5 50%, 
+      #faf8f5 100%);
+  box-shadow: -3px -3px 8px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.book-spread-container .demo-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      rgba(212, 165, 116, 0.5) 50%, 
+      rgba(212, 165, 116, 0.5) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* გვერდის კუთხის hover ეფექტი */
+.book-spread-container .demo-page:hover::after {
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      #e8d4b0 50%, 
+      #e8d4b0 100%);
+  box-shadow: -4px -4px 12px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+}
+
+.book-spread-container .demo-page:hover::before {
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      rgba(212, 165, 116, 0.8) 50%, 
+      rgba(212, 165, 116, 0.8) 100%);
+  transform: scale(1.1);
+}
+
+/* გვერდის კუთხის ინსტრუქცია */
+.book-spread-container .demo-page::after {
+  content: '📖';
+  font-size: 16px;
+  color: #8B6914;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      #faf8f5 50%, 
+      #faf8f5 100%);
+  box-shadow: -3px -3px 8px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ვიდეო გვერდის სტილები */
+.book-spread-container .video-page {
+  padding: 30px;
+  background: linear-gradient(to right, #faf8f5 0%, #f5f0e8 100%);
+  box-shadow: inset 0 0 30px rgba(139, 69, 19, 0.1);
+  position: relative;
+  cursor: pointer;
+}
+
+.book-spread-container .video-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.06) 0%, transparent 35%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.book-spread-container .video-page .page-content {
+  position: relative;
+  z-index: 1;
+}
+
+.book-spread-container .video-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #8B4513;
+}
+
+.book-spread-container .video-page .video-title {
+  color: #5a3a1a;
+  font-family: 'Baktrioni', serif;
+  font-size: 1.2rem;
+  margin: 0;
+  flex: 1;
+}
+
+.book-spread-container .video-page .page-number {
+  color: #8B4513;
+  font-style: italic;
+  font-size: 0.9rem;
+  font-family: 'BPG Nino Mtavruli', serif;
+}
+
+.book-spread-container .video-page .video-container {
+  margin: 20px 0;
+  border: 3px solid #8B4513;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 6px rgba(0,0,0,0.1),
+    inset 0 0 20px rgba(139, 69, 19, 0.05);
+  background: #000;
+}
+
+.book-spread-container .video-page .book-video {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  display: block;
+}
+
+.book-spread-container .video-page .video-description {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(139, 69, 19, 0.05);
+  border-radius: 5px;
+  border: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+.book-spread-container .video-page .video-description p {
+  color: #5a3a1a;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+  font-family: 'BPG Nino Mtavruli', serif;
+}
+
+/* გადაფურცვლის ინდიკატორი */
+.book-spread-container .video-page .flip-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  opacity: 0.5;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* გვერდის კუთხის ეფექტი */
+.book-spread-container .video-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      #faf8f5 50%, 
+      #faf8f5 100%);
+  box-shadow: -2px -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Hover ეფექტი */
+.book-spread-container .video-page:hover {
+  box-shadow: 
+    inset 0 0 40px rgba(139, 69, 19, 0.15),
+    0 5px 10px rgba(0,0,0,0.1);
+}
+
+.book-spread-container .video-page:hover .flip-hint {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* რესპონსივობა */
+@media (max-width: 768px) {
+  .book-spread-container .book-pages {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .book-spread-container .page {
+    width: 100%;
+    min-height: 400px;
+  }
+  
+  .book-spread-container .book-spine {
+    display: none;
+  }
+  
+  .book-spread-container .left-page {
+    border-right: none;
+    border-bottom: 2px solid rgba(139, 69, 19, 0.3);
+  }
+  
+  .book-spread-container .page-title {
+    font-size: 20px;
+  }
+  
+  .book-spread-container .character-name {
+    font-size: 1.5em;
+  }
+  
+  .book-spread-container .portrait-container {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .book-spread-container .book-navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .book-spread-container .nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .book-spread-container .video-page {
+    padding: 20px;
+  }
+
+  .book-spread-container .video-page .video-title {
+    font-size: 1rem;
+  }
+
+  .book-spread-container .video-page .book-video {
+    max-height: 200px;
+  }
+
+  .book-spread-container .video-page .flip-hint {
+    font-size: 20px;
+    bottom: 15px;
+    right: 15px;
+  }
+} 
+
+/* ერთი გვერდიანი წიგნის სტილები */
+.book-single-page-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #f4e8d0;
+  border: 4px solid #8B6914;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.chat-section {
+  background: linear-gradient(105deg, #F4E8D0 0%, #E8D4B0 50%);
+  border: 2px solid #D4A574;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 0;
+  box-shadow: 0 4px 16px rgba(139, 69, 19, 0.08);
+}
+
+.info-section {
+  background: linear-gradient(-105deg, #F4E8D0 0%, #E8D4B0 50%);
+  border: 2px solid #D4A574;
+  border-radius: 8px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 16px rgba(139, 69, 19, 0.08);
+}
+
+/* გვერდის კუთხის ეფექტი */
+.book-spread-container .video-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      #faf8f5 50%, 
+      #faf8f5 100%);
+  box-shadow: -2px -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Hover ეფექტი */
+.book-spread-container .video-page:hover {
+  box-shadow: 
+    inset 0 0 40px rgba(139, 69, 19, 0.15),
+    0 5px 10px rgba(0,0,0,0.1);
+}
+
+.book-spread-container .video-page:hover .flip-hint {
+  opacity: 1;
+  transform: scale(1.3);
+} 
+
+/* ვერტიკალური გვერდებიანი წიგნის სტილები */
+.book-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.page-navigation {
+  position: sticky;
+  top: 0;
+  background: rgba(244, 232, 208, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #D4A574;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.page-indicators {
+  display: flex;
+  gap: 8px;
+}
+
+.page-indicator {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #D4A574;
+  background: #F4E8D0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baktrioni', serif;
+  font-size: 14px;
+  color: #8B6914;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.page-indicator:hover {
+  background: #E8D4B0;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.page-indicator.active {
+  background: #8B6914;
+  color: #F4E8D0;
+  box-shadow: 0 4px 12px rgba(139, 105, 20, 0.4);
+}
+
+.page-info {
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 14px;
+  color: #8B6914;
+  font-weight: 500;
+}
+
+.book-vertical-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #f4e8d0;
+  border: 4px solid #8B6914;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.book-vertical-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.book-vertical-container::-webkit-scrollbar-track {
+  background: rgba(212, 165, 116, 0.2);
+  border-radius: 4px;
+}
+
+.book-vertical-container::-webkit-scrollbar-thumb {
+  background: #D4A574;
+  border-radius: 4px;
+}
+
+.book-vertical-container::-webkit-scrollbar-thumb:hover {
+  background: #8B6914;
+}
+
+.book-page {
+  width: 100%;
+  min-height: 600px;
+  padding: 32px 24px;
+  background: linear-gradient(105deg, #F4E8D0 0%, #E8D4B0 50%);
+  border-bottom: 2px solid #D4A574;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(139, 69, 19, 0.08);
+  scroll-snap-align: start;
+}
+
+.book-page:last-child {
+  border-bottom: none;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #D4A574;
+}
+
+.page-title {
+  font-family: 'Baktrioni', serif;
+  font-size: 28px;
+  color: #8B6914;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ჩატის გვერდი */
+.chat-page {
+  background: linear-gradient(105deg, #F4E8D0 0%, #E8D4B0 50%);
+}
+
+.chat-section {
+  background: rgba(255, 254, 242, 0.3);
+  border: 2px solid #D4A574;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 0;
+}
+
+/* ინფორმაციის გვერდი */
+.info-page {
+  background: linear-gradient(-105deg, #F4E8D0 0%, #E8D4B0 50%);
+}
+
+.info-section {
+  background: rgba(255, 254, 242, 0.3);
+  border: 2px solid #D4A574;
+  border-radius: 8px;
+  padding: 24px 20px;
+}
+
+/* ციტატების გვერდი */
+.quotes-page {
+  background: linear-gradient(105deg, #F4E8D0 0%, #E8D4B0 50%);
+}
+
+.quotes-section {
+  background: rgba(255, 254, 242, 0.3);
+  border: 2px solid #D4A574;
+  border-radius: 8px;
+  padding: 24px 20px;
+}
+
+.quotes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quote-card {
+  background: rgba(255, 254, 242, 0.4);
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.quote-card:hover {
+  background: rgba(255, 254, 242, 0.6);
+  border-color: #D4A574;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.quote-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 60px;
+  color: #D4A574;
+  font-family: 'Baktrioni', serif;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.quote-card blockquote {
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #8B6914;
+  margin: 0 0 15px 0;
+  font-style: italic;
+}
+
+.quote-card cite {
+  font-family: 'Baktrioni', serif;
+  font-size: 14px;
+  color: #D4A574;
+  font-weight: 600;
+  display: block;
+  text-align: right;
+}
+
+/* ვიდეოების გვერდი */
+.videos-page {
+  background: linear-gradient(105deg, #F4E8D0 0%, #E8D4B0 50%);
+}
+
+.videos-section {
+  background: rgba(255, 254, 242, 0.3);
+  border: 2px solid #D4A574;
+  border-radius: 8px;
+  padding: 24px 20px;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.video-item {
+  background: rgba(255, 254, 242, 0.4);
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  border-radius: 8px;
+  padding: 15px;
+  transition: all 0.3s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-item:hover {
+  background: rgba(255, 254, 242, 0.6);
+  border-color: #D4A574;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.video-item:last-child {
+  margin-bottom: 0;
+}
+
+/* მემკვიდრეობის გვერდი */
+.legacy-page {
+  background: linear-gradient(-105deg, #F4E8D0 0%, #E8D4B0 50%);
+}
+
+.legacy-section {
+  background: rgba(255, 254, 242, 0.3);
+  border: 2px solid #D4A574;
+  border-radius: 8px;
+  padding: 24px 20px;
+}
+
+.legacy-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.legacy-item {
+  background: rgba(255, 254, 242, 0.4);
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.legacy-item:hover {
+  background: rgba(255, 254, 242, 0.6);
+  border-color: #D4A574;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.legacy-item h3 {
+  color: #8B6914;
+  margin-bottom: 10px;
+  font-family: 'Baktrioni', serif;
+  font-size: 1.1em;
+  border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+  padding-bottom: 5px;
+}
+
+.legacy-item p {
+  margin: 0;
+  font-family: 'BPG Nino Mtavruli', serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2C1810;
+  text-align: justify;
+}
+
+/* გვერდის კუთხის ეფექტი */
+.book-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: 
+    linear-gradient(315deg, 
+      transparent 0%, 
+      transparent 50%, 
+      #faf8f5 50%, 
+      #faf8f5 100%);
+  box-shadow: -3px -3px 8px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* რესპონსივობა */
+@media (max-width: 768px) {
+  .book-container {
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .page-navigation {
+    padding: 10px 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .page-indicators {
+    gap: 5px;
+  }
+  
+  .page-indicator {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .page-info {
+    font-size: 12px;
+  }
+  
+  .book-vertical-container {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    max-height: 70vh;
+  }
+  
+  .book-page {
+    min-height: 500px;
+    padding: 20px 16px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+  }
+  
+  .quotes-container {
+    gap: 15px;
+  }
+  
+  .legacy-content {
+    gap: 15px;
+  }
+  
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .video-item {
+    min-height: 180px;
+    padding: 12px;
+  }
+} 
